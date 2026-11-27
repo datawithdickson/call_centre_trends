@@ -37,8 +37,8 @@ The data for this project is sourced from google drive:
 - Nearly one call in five was not answered.
 - About half of rated calls scored 4 or 5.
 - Full operating hours ranged from 499 calls (14:00) to 594 calls (13:00).
-- Speed of answer showed no linear relationship with satisfaction (r = 0.00).
-- Differences between agents in unanswered rate, resolution, speed of answer and satisfaction were not statistically significant. This does not prove that agents perform equally.
+- Speed of answer showed no linear relationship with satisfaction.
+- Differences between agents in unanswered rate, resolution, speed of answer and satisfaction were not statistically significant.
 
 ## DAX measures
 The prototype calculates its metrics in JavaScript and Python. The DAX below is an equivalent for rebuilding it in Power BI.
