@@ -3,19 +3,19 @@
 ![Project Cover](https://github.com/datawithdickson/call_centre_trends/blob/main/pexels-kampus-8204317.jpg)
 
 ## Overview
-An interactive one-page dashboard built using claude AI exploring call volume, customer satisfaction, resolution, abandoned calls, speed of answer and agent metrics. I defined the goal, data cleaning prompts, metrics and design requirements. The analysis code and dashboard were generated with AI assistance (Claude). This is a prototype for demonstration, not a validated business assessment.
+An interactive dashboard built using claude AI exploring call volume, customer satisfaction, resolution, abandoned calls, speed of answer and agent metrics. I defined the goal, Added data cleaning prompts, metrics and design requirements. The analysis code and dashboard were generated with AI assistance (Claude). This is a prototype for demonstration, not a validated business assessment.
 
 ## Dataset source
-- **Source:** [https://drive.google.com/drive/folders/1-1R_tACw5dlIyBSXprqmjTIvIKfWH18B]
-- **Size:** 5,000 call records, 10 original columns
-- **Period:** January to March 2021
-- **Fields:** call ID, agent, date, time, topic, answered, resolved, speed of answer, talk duration, satisfaction rating
-- **Note:** the data file is not included in this repository.
+
+The data for this project is sourced from google drive:
+
+- **Dataset Link:** [https://drive.google.com/drive/folders/1-1R_tACw5dlIyBSXprqmjTIvIKfWH18B]
 
 ## Tools & Technologies
-- **Python:** pandas (cleaning and metrics), SciPy (significance tests), Matplotlib (charts)
-- **HTML, CSS, JavaScript and SVG:** interactive dashboard
-- **Claude:** AI assistant used to generate the code
+
+- Claude
+- Python
+- HTML, CSS, JavaScript and SVG
 
 ## Dashboard preview
 **Link:** [add dashboard preview link]
