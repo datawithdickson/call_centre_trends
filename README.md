@@ -5,11 +5,6 @@
 ## Overview
 An interactive dashboard built using claude AI exploring call volume, customer satisfaction, resolution, abandoned calls, speed of answer and agent metrics. I defined the goal, Added data cleaning prompts, metrics and design requirements. The analysis code and dashboard were generated with AI assistance (Claude). This is a prototype for demonstration, not a validated business assessment.
 
-## Dataset source
-
-The data for this project is sourced from Google Drive:
-
-- **Dataset Link:** [https://drive.google.com/drive/folders/1-1R_tACw5dlIyBSXprqmjTIvIKfWH18B]
 
 ## Tools & Technologies
 
