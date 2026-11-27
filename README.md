@@ -27,8 +27,8 @@ The data for this project is sourced from google drive:
 |---|---|
 | Total calls | 5,000 |
 | Unanswered calls | 946 (18.9%) |
-| Resolved, of answered calls | 89.9% |
-| Resolved, of all calls | 72.9% |
+| Resolution rate for answered calls | 89.9% |
+| Resolution rate for all incoming calls | 72.9% |
 | CSAT (ratings of 4 or 5) | 49.9% |
 | Average rating | 3.40 out of 5 |
 | Average speed of answer | 67.5 seconds |
