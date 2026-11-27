@@ -59,7 +59,7 @@ Abandoned Calls =
 CALCULATE ( [Total Calls], calls[answered] = FALSE () )
 ```
 
-### Call Abandoned %
+### Calls Abandoned %
 ```dax
 Abandoned % =
 DIVIDE ( [Abandoned Calls], [Total Calls] )
@@ -213,4 +213,4 @@ Weekday Number = WEEKDAY ( calls[call_received_at], 2 )
 | `dashboard_preview.png` | Screenshot of a project dashboard |
 
 ## Conclusion
-This prototype shows how AI assistance can turn defined requirements into an interactive call centre dashboard. It points to unanswered calls and satisfaction ratings as areas to investigate.
+This project shows that AI assistance can speed up analysis and dashboard design, but the results still need human checking. Metric definitions, assumptions and data quality should be confirmed before any business use. The important step is to rebuild the dashboard in Power BI and validate the DAX measures against these results.
