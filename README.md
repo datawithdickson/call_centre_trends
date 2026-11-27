@@ -1,5 +1,7 @@
 # PwC Call Centre Trends Dashboard with Claude
 
+![Project Cover(https://github.com/datawithdickson/call_centre_trends/blob/main/pexels-kampus-8204317.jpg)
+
 ## Overview
 An interactive one-page dashboard built using claude AI exploring call volume, customer satisfaction, resolution, abandoned calls, speed of answer and agent metrics. I defined the goal, data cleaning prompts, metrics and design requirements. The analysis code and dashboard were generated with AI assistance (Claude). This is a prototype for demonstration, not a validated business assessment.
 
