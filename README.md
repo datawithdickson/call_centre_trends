@@ -41,74 +41,71 @@ The data for this project is sourced from Google Drive:
 - Differences between agents in unanswered rate, resolution, speed of answer and satisfaction were not statistically significant.
 
 ## DAX measures
-The prototype calculates its metrics in JavaScript and Python. The DAX below is an equivalent for rebuilding it in Power BI.
-It assumes `call_center_clean.csv` (produced by `clean_calls.py`) is loaded as a table named `calls`, with true/false, number and date/time column types.
 
+### Call Volume
 ```dax
--- Volume
 Total Calls = COUNTROWS ( calls )
+```
 
+### Answered Calls
+```dax
 Answered Calls =
 CALCULATE ( [Total Calls], calls[answered] = TRUE () )
+```
 
+### Abandoned Calls
+```dax
 Abandoned Calls =
 CALCULATE ( [Total Calls], calls[answered] = FALSE () )
+```
 
-Abandoned % = DIVIDE ( [Abandoned Calls], [Total Calls] )
+### Call Abandoned %
+```dax
+Abandoned % =
+DIVIDE ( [Abandoned Calls], [Total Calls] )
+```
 
--- Resolution: recorded status
+### Resolved Calls
+```dax
 Resolved Calls =
 CALCULATE ( [Total Calls], calls[resolved] = TRUE () )
+```
 
--- Denominator: answered calls
-Resolved % (Answered) = DIVIDE ( [Resolved Calls], [Answered Calls] )
+### Resolution Rate for Answered Calls
+```dax
+Resolved % (Answered) =
+DIVIDE ( [Resolved Calls], [Answered Calls] )
+```
 
--- Denominator: all calls
-Resolved % (All Calls) = DIVIDE ( [Resolved Calls], [Total Calls] )
+### Resolution Rate for All Calls
+```dax
+Resolved % (All Calls) =
+DIVIDE ( [Resolved Calls], [Total Calls] )
+```
 
--- Satisfaction
+### Rated Calls
+```dax
 Rated Calls = COUNT ( calls[satisfaction_rating] )
+```
 
--- CSAT: share of rated calls scoring 4 or 5
+### Customer Satisfaction (CSAT)
+```dax
+-- Share of rated calls scoring 4 or 5
 CSAT % =
 DIVIDE (
     CALCULATE ( [Total Calls], calls[satisfaction_rating] >= 4 ),
     [Rated Calls]
 )
+```
 
+### Average Satisfaction Rating
+```dax
 Average Rating = AVERAGE ( calls[satisfaction_rating] )
+```
 
--- Speed and handling (blank values are ignored)
-Avg Speed of Answer (s) = AVERAGE ( calls[speed_of_answer_sec] )
-
-Avg Talk Time (s) = AVERAGE ( calls[talk_duration_sec] )
-
-Avg Handling Time (m:ss) =
-VAR s = ROUND ( [Avg Talk Time (s)], 0 )
-RETURN
-    IF (
-        NOT ISBLANK ( s ),
-        INT ( s / 60 ) & ":" & FORMAT ( MOD ( s, 60 ), "00" )
-    )
-
-Last Call Received = MAX ( calls[call_received_at] )
-
--- Filter to answered calls: DAX treats a blank as 0 in this comparison
-Answered Within 20s % =
-DIVIDE (
-    CALCULATE (
-        [Total Calls],
-        calls[answered] = TRUE (),
-        calls[speed_of_answer_sec] <= 20
-    ),
-    [Answered Calls]
-)
-
-Median Speed of Answer (s) = MEDIAN ( calls[speed_of_answer_sec] )
-
-P90 Speed of Answer (s) = PERCENTILE.INC ( calls[speed_of_answer_sec], 0.9 )
-
--- Exclude blanks so unrated calls are not counted as low ratings
+### Low Satisfaction Rate
+```dax
+-- Share of rated calls scoring 1 or 2; unrated calls are excluded
 Low Rating % =
 DIVIDE (
     CALCULATE (
@@ -121,16 +118,88 @@ DIVIDE (
     ),
     [Rated Calls]
 )
+```
 
+### Average Speed of Answer
+```dax
+Avg Speed of Answer (s) = AVERAGE ( calls[speed_of_answer_sec] )
+```
+
+### Median Speed of Answer
+```dax
+Median Speed of Answer (s) = MEDIAN ( calls[speed_of_answer_sec] )
+```
+
+### 90th Percentile Speed of Answer
+```dax
+P90 Speed of Answer (s) =
+PERCENTILE.INC ( calls[speed_of_answer_sec], 0.9 )
+```
+
+### Calls Answered Within 20 Seconds
+```dax
+-- The answered filter stops blank values counting as 0 seconds
+Answered Within 20s % =
+DIVIDE (
+    CALCULATE (
+        [Total Calls],
+        calls[answered] = TRUE (),
+        calls[speed_of_answer_sec] <= 20
+    ),
+    [Answered Calls]
+)
+```
+
+### Average Talk Time
+```dax
+Avg Talk Time (s) = AVERAGE ( calls[talk_duration_sec] )
+```
+
+### Average Call Handling Time
+```dax
+-- Talk time only, shown as minutes:seconds
+Avg Handling Time (m:ss) =
+VAR s = ROUND ( [Avg Talk Time (s)], 0 )
+RETURN
+    IF (
+        NOT ISBLANK ( s ),
+        INT ( s / 60 ) & ":" & FORMAT ( MOD ( s, 60 ), "00" )
+    )
+```
+
+### Last Call Received
+```dax
+Last Call Received = MAX ( calls[call_received_at] )
+```
+
+### Call Hour
+```dax
+-- Calculated column
 Call Hour = HOUR ( calls[call_received_at] )
+```
 
+### Month Name
+```dax
+-- Calculated column; sort by Month Number
 Month Name = FORMAT ( calls[call_received_at], "MMMM" )
+```
 
-Month Number = MONTH ( calls[call_received_at] )      -- sort Month Name by this
+### Month Number
+```dax
+-- Calculated column
+Month Number = MONTH ( calls[call_received_at] )
+```
 
+### Weekday Name
+```dax
+-- Calculated column; sort by Weekday Number
 Weekday Name = FORMAT ( calls[call_received_at], "dddd" )
+```
 
-Weekday Number = WEEKDAY ( calls[call_received_at], 2 )  -- Monday = 1
+### Weekday Number
+```dax
+-- Calculated column; Monday = 1
+Weekday Number = WEEKDAY ( calls[call_received_at], 2 )
 ```
 
 ## Project files
@@ -142,8 +211,6 @@ Weekday Number = WEEKDAY ( calls[call_received_at], 2 )  -- Monday = 1
 | `verify.py` | Recalculates reported figures from the original data |
 | `eda_charts.py` | Exploratory charts |
 | `dashboard_preview.png` | Screenshot of a project dashboard |
-
-To run: install `pandas pyarrow scipy matplotlib`, place `01_Call-Center-Dataset.csv` in the project folder, create `out` and `eda` folders, then run the scripts in the order listed.
 
 ## Conclusion
 This prototype shows how AI assistance can turn defined requirements into an interactive call centre dashboard. It points to unanswered calls and satisfaction ratings as areas to investigate.
