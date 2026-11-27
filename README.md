@@ -1,9 +1,9 @@
-# Call Centre Trends: AI-Assisted Dashboard Prototype
+# PwC Call Centre Trends Dashboard with Claude
 
 ## Overview
-An interactive one-page dashboard exploring call volume, customer satisfaction, resolution, abandoned calls, speed of answer and agent metrics. It has slicers for agent, topic, month and weekday.
+An interactive one-page dashboard built using claude AI exploring call volume, customer satisfaction, resolution, abandoned calls, speed of answer and agent metrics. It has slicers for agent, topic, month and weekday.
 
-I defined the goal, data cleaning rules, metrics and design requirements. The analysis code and dashboard were generated with AI assistance (Claude). This is a prototype for demonstration, not a validated business assessment.
+I defined the goal, data cleaning prompts, metrics and design requirements. The analysis code and dashboard were generated with AI assistance (Claude). This is a prototype for demonstration, not a validated business assessment.
 
 ## Dataset source
 - **Source:** [add dataset name, provider and link]
