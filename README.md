@@ -214,5 +214,5 @@ Weekday Number = WEEKDAY ( calls[call_received_at], 2 )
 | `PROMPTS.txt` | Prompts used in this project |
 
 ## Conclusion
-This project turned 5,000 call records into a clear view of call centre activity. Two areas stand out for further investigation: 18.9% of calls went unanswered, and only 49.9% of rated calls scored 4 or 5. A resolution rate of 89.9% for answered calls does not, on its own, show that customers were satisfied.
+This project turned 5,000 call records into a clear view of call centre activity. Two areas stand out for further investigation: 18.9% of calls went unanswered, and only 49.9% of rated calls scored 4 or 5. A resolution rate of 89.9% for answered calls does not, on its own, show that customers were satisfied. 
 Important thing to note is that, this project shows that AI assistance can speed up analysis and dashboard design, but the results still need human checking. Metric definitions, assumptions and data quality should be confirmed before any business use. The important step is to rebuild the dashboard in Power BI and validate the DAX measures against these results.
