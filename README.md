@@ -18,11 +18,11 @@ The data for this project is sourced from google drive:
 - HTML, CSS, JavaScript and SVG
 
 ## Dashboard preview
-**Link:** [add dashboard preview link]
 
-![Dashboard preview](dashboard_preview.png)
+![PwC Call Centre Trends Dashboard](https://github.com/datawithdickson/call_centre_trends/blob/main/Call_Centre_Trends_Dashboard.png)
 
 ## Key insights
+
 | Metric | Result |
 |---|---|
 | Total calls | 5,000 |
@@ -40,18 +40,8 @@ The data for this project is sourced from google drive:
 - Speed of answer showed no linear relationship with satisfaction (r = 0.00).
 - Differences between agents in unanswered rate, resolution, speed of answer and satisfaction were not statistically significant. This does not prove that agents perform equally.
 
-### Assumptions and limits
-- A rating of 5 is assumed to be the best.
-- Unanswered calls are treated as abandoned; the reason is not recorded.
-- "Resolved" is a recorded status. It is not customer-confirmed, and its measurement method is unknown.
-- Handling time covers talk time only.
-- Many records share timestamps and some agent calls overlap; the cause is unknown.
-- Results were not analysed by topic.
-- The findings do not show cause.
-
 ## DAX measures
-The prototype calculates its metrics in JavaScript and Python. The DAX below is an equivalent for rebuilding it in Power BI. **It has not been tested in Power BI.**
-
+The prototype calculates its metrics in JavaScript and Python. The DAX below is an equivalent for rebuilding it in Power BI.
 It assumes `call_center_clean.csv` (produced by `clean_calls.py`) is loaded as a table named `calls`, with true/false, number and date/time column types.
 
 ### KPI measures
@@ -103,10 +93,7 @@ RETURN
     )
 
 Last Call Received = MAX ( calls[call_received_at] )
-```
 
-### Other calculations
-```dax
 -- Filter to answered calls: DAX treats a blank as 0 in this comparison
 Answered Within 20s % =
 DIVIDE (
@@ -135,10 +122,7 @@ DIVIDE (
     ),
     [Rated Calls]
 )
-```
 
-### Calculated columns for charts and slicers
-```dax
 Call Hour = HOUR ( calls[call_received_at] )
 
 Month Name = FORMAT ( calls[call_received_at], "MMMM" )
@@ -155,7 +139,7 @@ Weekday Number = WEEKDAY ( calls[call_received_at], 2 )  -- Monday = 1
 |---|---|
 | `README.md` | Project description |
 | `profile_data.py` | Data quality profile |
-| `clean_calls.py` | Data cleaning and flags |
+| `clean_calls.py` | Data cleaning |
 | `verify.py` | Recalculates reported figures from the original data |
 | `eda_charts.py` | Exploratory charts |
 | `dashboard_preview.png` | Screenshot with neutral branding and anonymized agents |
@@ -163,4 +147,4 @@ Weekday Number = WEEKDAY ( calls[call_received_at], 2 )  -- Monday = 1
 To run: install `pandas pyarrow scipy matplotlib`, place `01_Call-Center-Dataset.csv` in the project folder, create `out` and `eda` folders, then run the scripts in the order listed.
 
 ## Conclusion
-This prototype shows how AI assistance can turn defined requirements into an interactive call centre dashboard. It points to unanswered calls and satisfaction ratings as areas to investigate. Before any business use, the metric definitions, data quality and results need independent validation. The next step is to rebuild and test the measures in Power BI.
+This prototype shows how AI assistance can turn defined requirements into an interactive call centre dashboard. It points to unanswered calls and satisfaction ratings as areas to investigate.
