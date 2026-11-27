@@ -44,7 +44,6 @@ The data for this project is sourced from Google Drive:
 The prototype calculates its metrics in JavaScript and Python. The DAX below is an equivalent for rebuilding it in Power BI.
 It assumes `call_center_clean.csv` (produced by `clean_calls.py`) is loaded as a table named `calls`, with true/false, number and date/time column types.
 
-### KPI measures
 ```dax
 -- Volume
 Total Calls = COUNTROWS ( calls )
@@ -142,7 +141,7 @@ Weekday Number = WEEKDAY ( calls[call_received_at], 2 )  -- Monday = 1
 | `clean_calls.py` | Data cleaning |
 | `verify.py` | Recalculates reported figures from the original data |
 | `eda_charts.py` | Exploratory charts |
-| `dashboard_preview.png` | Screenshot with neutral branding and anonymized agents |
+| `dashboard_preview.png` | Screenshot of a project dashboard |
 
 To run: install `pandas pyarrow scipy matplotlib`, place `01_Call-Center-Dataset.csv` in the project folder, create `out` and `eda` folders, then run the scripts in the order listed.
 
