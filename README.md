@@ -7,7 +7,7 @@ An interactive dashboard built using claude AI exploring call volume, customer s
 
 ## Dataset source
 
-The data for this project is sourced from google drive:
+The data for this project is sourced from Google Drive:
 
 - **Dataset Link:** [https://drive.google.com/drive/folders/1-1R_tACw5dlIyBSXprqmjTIvIKfWH18B]
 
