@@ -1,0 +1,95 @@
+PROMPTS USED IN THIS PROJECT (ORIGINAL WORDING)
+
+======================================================================
+1. CONFIRM THE GOAL
+======================================================================
+
+I am a data analyst working with the attached datasets as a part of a people analytics team. My goal is  to evaluate call center operational efficiency, agent performance, issue resolution effectiveness, and customer satisfaction, with the objective of identifying operational weaknesses and providing actionable recommendations to improve customer experience and service delivery. Our audience is the customer listening and insights manager. Don't analyze anything yet. Just confirm you understand the goal.
+
+
+======================================================================
+2. PROFILE THE DATA
+======================================================================
+
+Profile the dataset. Do NOT change anything yet.
+- Rows, columns, and each column's data type
+- Missing values per column – and check for missing data disguised as text (placeholders like "N/A", "None", "Not specified", or blanks written as words)
+- Any column stored as text that should be a number or date
+- Number of rows
+- Anything that looks suspicious or impossible. End with a list of issues worth fixing.
+
+Stop there. Don't clean anything yet.
+
+
+======================================================================
+3. CLEAN THE DATA
+======================================================================
+
+- convert: date to date data type and time to time data type
+              answered and resolved to Boolean
+- store speed of answer and satisfaction as nullable integers. Keep the blanks and do not impute them.
+- treat talk duration on unanswered calls as null in duration metrics.
+- rename columns to snake_case for PostgreSQL, for example `answered`, `speed_of_answer_sec` and `talk_duration_sec`
+- flag shared timestamps and overlaps, but do not delete those rows
+_ average talk duration is in seconds, time marks when the call was received
+- agent name identifies the agent assigned to, routed, or associated with that call record 
+- one agent generally handles one live customer call at a time
+- about "resolved":     
+
+* treat `"resolved"` as a recorded resolution status, not independently verified customer satisfaction.
+* avoid describing it as customer-confirmed resolution.
+* analyze resolution rates alongside satisfaction ratings.
+* explicitly document that the resolution measurement methodology is unknown.
+
+An important distinction: A call marked `resolved = Yes` does not necessarily mean the customer's problem was permanently solved. It only establishes that the dataset records the call as resolved.
+Do not perform EDA or Data analysis yet. Just clean the data and perform other instructions and when finished report YES.
+
+
+======================================================================
+4. EXPLORE AND VISUALIZE
+======================================================================
+
+Explore the clean data and analyze with visuals the following key insights.
+Total calls (Call Volume) - no visuals
+Customer Satisfaction - no visuals
+Calls resolved - no visuals
+Calls abandoned - no visuals
+Speed of call answer - no visuals
+Agent performance - a table with columns(agent, total calls, call abandoned, speed of call answer, call resolved %, customer satisfaction (CSAT)) 
+Calls by satisfaction levels - column chart
+Call volume by hours- line chart with markers
+Call volume by days - line chart with markers
+Use the blue color
+
+
+======================================================================
+5. PDF REPORT
+======================================================================
+
+Convert your findings into a PDF report. This should be more of a narrative with some key charts and recommendations for pwc call center performance. Do not show the original dataset, or the data clean process as it is not relevant.
+In the visuals, use a clear title example "Call Volume by Days" not a finding like "Monday and Saturday record the most calls"
+
+
+======================================================================
+6. DASHBOARD
+======================================================================
+
+Create a one page custom dashboard in Canvas Mode that summarizes the most important insights for decision makers.
+
+The dashboard must include:
+
+Title: Call Centre Trends
+Key insights: Visualize Call Volume,CSAT, Call resolved %, Call Abandoned %, Speed of Call answer, Avg Call Handling time, Last call received as KPIs
+                    Visualize Agent performance using the same columns in the report as a matrix.
+                    Visualize Call Volume by Hours as a line chart and use shadows
+                    Visualize Call Volume by Days as a line chart and use shadows
+                    Visualize Calls by Satisfaction levels as a column chart with data labels on the column bars.
+                    The filters/slicers should be Agent, Topic, Month, WeekDay
+
+Design:
+Use the company logo as uploaded above.
+Extract the color palettes in the uploaded logo and use 
+those colors in design of the dashboard.
+Use the call center related icons to design 
+Include a downloadable picture of the dashboard here not just a HTML file.
+
