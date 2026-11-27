@@ -211,6 +211,7 @@ Weekday Number = WEEKDAY ( calls[call_received_at], 2 )
 | `verify.py` | Recalculates reported figures from the original data |
 | `eda_charts.py` | Exploratory charts |
 | `dashboard_preview.png` | Screenshot of a project dashboard |
+| `PROMPTS.ttxt` | Prompts used in this project |
 
 ## Conclusion
 This project shows that AI assistance can speed up analysis and dashboard design, but the results still need human checking. Metric definitions, assumptions and data quality should be confirmed before any business use. The important step is to rebuild the dashboard in Power BI and validate the DAX measures against these results.
