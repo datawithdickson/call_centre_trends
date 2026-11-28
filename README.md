@@ -1,6 +1,6 @@
 # Call Center Trends Analysis
 
-![Project Cover](https://github.com/datawithdickson/call_center_trends/blob/main/pexels-kampus-8204317.jpg)
+![Project Cover](https://github.com/datawithdickson/call_centre_trends/blob/main/pexels-kampus-8204317.jpg)
 
 ## Overview
 
@@ -16,7 +16,7 @@ An interactive dashboard built with Claude AI exploring call volume, customer sa
 
 ## Dashboard preview
 
-![PwC Call center Trends Dashboard](https://github.com/datawithdickson/call_center_trends/blob/main/Call_center_Trends_Dashboard.png)
+![PwC Call center Trends Dashboard](https://github.com/datawithdickson/call_centre_trends/blob/main/Call_Centre_Trends_Dashboard.png)
 
 ## Key insights
 
