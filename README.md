@@ -1,9 +1,11 @@
-# PwC Call Centre Trends Dashboard with Claude
+# Call Center Trends Analysis
 
-![Project Cover](https://github.com/datawithdickson/call_centre_trends/blob/main/pexels-kampus-8204317.jpg)
+![Project Cover](https://github.com/datawithdickson/call_center_trends/blob/main/pexels-kampus-8204317.jpg)
 
 ## Overview
-An interactive dashboard built using claude AI exploring call volume, customer satisfaction, resolution, abandoned calls, speed of answer and agent metrics. I defined the goal, Added data cleaning prompts, metrics and design requirements. The analysis code and dashboard were generated with AI assistance (Claude). This is a prototype for demonstration, not a validated business assessment.
+
+**Dataset:** PwC Call Center Trends | **AI assistant:** Claude
+An interactive dashboard built with Claude AI exploring call volume, customer satisfaction, resolution, abandoned calls, speed of answer and agent metrics. I defined the goal, Added data cleaning prompts, metrics and design requirements. The analysis code and dashboard were generated with AI assistance (Claude). This is a prototype for demonstration, not a validated business assessment.
 
 
 ## Tools & Technologies
@@ -14,7 +16,7 @@ An interactive dashboard built using claude AI exploring call volume, customer s
 
 ## Dashboard preview
 
-![PwC Call Centre Trends Dashboard](https://github.com/datawithdickson/call_centre_trends/blob/main/Call_Centre_Trends_Dashboard.png)
+![PwC Call center Trends Dashboard](https://github.com/datawithdickson/call_center_trends/blob/main/Call_center_Trends_Dashboard.png)
 
 ## Key insights
 
@@ -209,6 +211,6 @@ Weekday Number = WEEKDAY ( calls[call_received_at], 2 )
 | `PROMPTS.txt` | Prompts used in this project |
 
 ## Conclusion
-This project turned 5,000 call records into a clear view of call centre activity. Two areas stand out for further investigation: 18.9% of calls went unanswered, and only 49.9% of rated calls scored 4 or 5. A resolution rate of 89.9% for answered calls does not, on its own, show that customers were satisfied. 
+This project turned 5,000 call records into a clear view of call center activity. Two areas stand out for further investigation: 18.9% of calls went unanswered, and only 49.9% of rated calls scored 4 or 5. A resolution rate of 89.9% for answered calls does not, on its own, show that customers were satisfied. 
 
 Important thing to note is that, this project shows that AI assistance can speed up analysis and dashboard design, but the results still need human checking. Metric definitions, assumptions and data quality should be confirmed before any business use. The important step is to rebuild the dashboard in Power BI and validate the DAX measures against these results.
